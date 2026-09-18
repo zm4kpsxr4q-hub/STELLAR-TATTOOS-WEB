@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <style>
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stellar Tattoos | Home</title>
    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+<script src="/assets/js/nav.js"></script>
 <body>
 
 <header>
     <div class="logo">
-        <!--Logo image goes here-->
+         <img src="/assets/images/STELLAR TATTOOS.jpeg" alt="Stellar Tattoos logo" class="logo-img">
         <span>Stellar Tattoos</span>
     </div>
-    <nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="mainNav">
         <a href="/index.html">Home</a>
         <a href="/pages/services.html">Services</a>
         <a href="/pages/aboutus.html">About Us</a>
