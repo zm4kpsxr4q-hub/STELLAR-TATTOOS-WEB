@@ -6,13 +6,22 @@
     <title>Gallery | Stellar Tattoos</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
+<script src="/assets/js/nav.js"></script>
 <body>
 
 <header>
     <div class="logo">
+        <img src="/assets/images/STELLAR TATTOOS.jpeg" alt="Stellar Tattoos logo" class="logo-img">
         <span>Stellar Tattoos</span>
     </div>
-    <nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="mainNav">
         <a href="/index.html">Home</a>
         <a href="/pages/services.html">Services</a>
         <a href="/pages/aboutus.html">About Us</a>
@@ -79,6 +88,17 @@
 </main>
 
 <footer>
+    <div class="footer-social">
+        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://tiktok.com/@YOUR_HANDLE" target="_blank" rel="noopener" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+    </div>
     <p>&copy; 2023 Stellar Tattoos. All rights reserved.</p>
 </footer>
 
