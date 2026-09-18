@@ -1,4 +1,11 @@
 /* ===== Reset & base ===== */
+
+.satisfy-regular {
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -58,6 +65,45 @@ nav a {
 nav a:hover {
   color: #c1502e;
 }
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid #262626;
+  position: sticky;
+  top: 0;
+  background-color: #0c0c0c;
+  flex-wrap: wrap;
+  gap: 16px;
+  z-index: 100;
+}
+
+/* ===== Nav toggle (hamburger) ===== */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.nav-toggle span {
+  height: 2px;
+  width: 100%;
+  background-color: #f2ede4;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* ===== Section 1: Hero ===== */
 .hero {
@@ -217,19 +263,6 @@ footer p {
   font-size: 0.85rem;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 800px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-  .service-card {
-    border-left: none;
-  }
-} 
-
 /* ===== Page intro (Services heading) ===== */
 .page-intro {
   padding: 80px 40px 40px;
@@ -336,13 +369,6 @@ footer p {
   border-color: #a8431f;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 700px) {
-  .service-row {
-    grid-template-columns: 1fr;
-  }
-} 
-
 /* ===== Portfolio grid ===== */
 .portfolio-grid {
   display: grid;
@@ -393,13 +419,6 @@ footer p {
   letter-spacing: 0.5px;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 800px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-} 
-
 /* ===== Gallery category headings ===== */
 .gallery-category {
   max-width: 1200px;
@@ -416,7 +435,7 @@ footer p {
 
 .gallery-category:first-of-type h2 {
   border-top: none;
-} 
+}
 
 /* ===== FAQ accordion ===== */
 .faq-list {
@@ -438,12 +457,10 @@ footer p {
   padding-right: 30px;
 }
 
-/* Hide the browser's default triangle marker */
 .faq-item summary::-webkit-details-marker {
   display: none;
 }
 
-/* Custom + / − indicator */
 .faq-item summary::after {
   content: "+";
   position: absolute;
@@ -461,7 +478,7 @@ footer p {
   color: #9a9a9a;
   margin-top: 14px;
   max-width: 60ch;
-} 
+}
 
 /* ===== Artist polaroid grid ===== */
 .artist-grid {
@@ -506,19 +523,6 @@ footer p {
 .polaroid figcaption strong {
   font-size: 1.05rem;
 }
-
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-  .artist-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .artist-grid {
-    grid-template-columns: 1fr;
-  }
-} 
 
 /* ===== Text blocks (Mission / Vision) ===== */
 .text-block {
@@ -584,27 +588,6 @@ footer p {
   color: #9a9a9a;
   font-size: 0.9rem;
 }
-
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-  .feature-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px 0;
-  }
-  .feature-card {
-    border-left: none;
-    padding-left: 0;
-  }
-  .feature-card:nth-child(odd) {
-    padding-right: 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
-} 
 
 /* ===== Progress indicator ===== */
 .form-progress {
@@ -686,10 +669,7 @@ footer p {
 .review-summary strong {
   color: #c1502e;
   margin-right: 8px;
-} 
-
-
-
+}
 
 /* ===== Enquiry form ===== */
 .enquiry-form fieldset {
@@ -747,7 +727,7 @@ footer p {
   margin-top: 30px;
   cursor: pointer;
   font-family: inherit;
-} 
+}
 
 /* ===== Contact details list ===== */
 .contact-details {
@@ -805,4 +785,210 @@ footer p {
 .enquiry-form-section h2 {
   font-size: 1.8rem;
   margin-bottom: 30px;
+}
+
+/* ===== Logo image ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Footer social icons ===== */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.footer-social a {
+  color: #9a9a9a;
+  font-size: 1.3rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #c1502e;
+  transform: translateY(-4px);
+}
+
+/* =====================================================
+   RESPONSIVE — mobile-first breakpoints
+   Tablet: max-width 1024px
+   Phone:  max-width 600px (768px for spacing/type scale)
+   ===================================================== */
+
+/* ---- Tablet (≤1024px) ---- */
+@media (max-width: 1024px) {
+  header {
+    padding: 18px 24px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    padding: 14px 0;
+    border-bottom: 1px solid #262626;
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-card:nth-child(3n+1) {
+    border-left: 1px solid #262626;
+  }
+
+  .service-card:nth-child(2n+1) {
+    border-left: none;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .artist-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 0;
+  }
+
+  .feature-card {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .feature-card:nth-child(odd) {
+    padding-right: 20px;
+  }
+}
+
+/* ---- Phone spacing & type scale (≤768px) ---- */
+@media (max-width: 768px) {
+  .hero,
+  .services-preview,
+  .page-intro,
+  .pricing-note,
+  .services-list,
+  .quote-block,
+  .cta,
+  .gallery-category,
+  .faq-list,
+  .artist-grid,
+  .portfolio-grid,
+  .text-block,
+  .why-us,
+  .contact-details,
+  .store-map,
+  .enquiry-form-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .hero h1,
+  .page-intro h1 {
+    font-size: 1.9rem;
+  }
+
+  .services-head h2,
+  .why-us h2 {
+    font-size: 1.7rem;
+  }
+
+  .cta h2 {
+    font-size: 1.8rem;
+  }
+
+  .quote-text {
+    font-size: 1.25rem;
+  }
+
+  .stats-row {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .stat-number {
+    font-size: 1.4rem;
+  }
+
+  .form-progress {
+    gap: 16px;
+  }
+
+  .progress-label {
+    display: none;
+  }
+}
+
+/* ---- Phone (≤600px) ---- */
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    border-left: none;
+  }
+
+  .service-row {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .artist-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
 }
