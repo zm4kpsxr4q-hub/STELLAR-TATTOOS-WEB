@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Stellar Tattoos</title>
+
+    <!-- SEO meta tags -->
+    <meta name="description" content="See the latest black and grey and colour tattoo work from Stellar Tattoos, a Cape Town tattoo and piercing studio.">
+    <meta name="keywords" content="tattoo gallery, black and grey tattoos, colour tattoos, tattoo inspiration, Cape Town tattoo work">
+    <meta name="author" content="Hlumelo">
+
+    <title>Tattoo Gallery | Stellar Tattoos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<script src="/assets/js/nav.js"></script>
 <body>
 
 <header>
@@ -41,22 +51,28 @@
         <p>Check out some of our latest work!</p>
     </section>
 
+    <section class="search-bar">
+        <label for="siteSearch" class="sr-only">Search the gallery</label>
+        <input type="search" id="siteSearch" placeholder="Search the gallery (e.g. grey or color)" data-search-items=".hover-item" autocomplete="off">
+        <p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
+    </section>
+
     <section class="gallery-category">
         <h2>Black &amp; Grey Tattoos</h2>
         <div class="portfolio-grid">
 
             <figure class="hover-item">
-                <img src="/assets/images/B&W DESIGN.jpeg" alt="Black & Grey Tattoo 1">
+                <img src="/assets/images/B&amp;W DESIGN.jpeg" alt="Black and grey tattoo 1" loading="lazy">
                 <figcaption>Black &amp; Grey Tattoo 1</figcaption>
             </figure>
 
             <figure class="hover-item">
-                <img src="/assets/images/B&W DESIGN 2.jpeg" alt="Black & Grey Tattoo 2">
+                <img src="/assets/images/B&amp;W DESIGN 2.jpeg" alt="Black and grey tattoo 2" loading="lazy">
                 <figcaption>Black &amp; Grey Tattoo 2</figcaption>
             </figure>
 
             <figure class="hover-item">
-                <img src="/assets/images/B&W DESIGN 3.jpeg" alt="Black & Grey Tattoo 3">
+                <img src="/assets/images/B&amp;W DESIGN 3.jpeg" alt="Black and grey tattoo 3" loading="lazy">
                 <figcaption>Black &amp; Grey Tattoo 3</figcaption>
             </figure>
 
@@ -68,17 +84,17 @@
         <div class="portfolio-grid">
 
             <figure class="hover-item tint">
-                <img src="/assets/images/COLOUR DESIGN.jpeg" alt="Color Tattoo 1">
+                <img src="/assets/images/COLOUR DESIGN.jpeg" alt="Color tattoo 1" loading="lazy">
                 <figcaption>Color Tattoo 1</figcaption>
             </figure>
 
             <figure class="hover-item tint">
-                <img src="/assets/images/COLOUR DESIGN 2.jpeg" alt="Color Tattoo 2">
+                <img src="/assets/images/COLOUR DESIGN 2.jpeg" alt="Color tattoo 2" loading="lazy">
                 <figcaption>Color Tattoo 2</figcaption>
             </figure>
 
             <figure class="hover-item tint">
-                <img src="/assets/images/COLOUR DESIGN 3.jpeg" alt="Color Tattoo 3">
+                <img src="/assets/images/COLOUR DESIGN 3.jpeg" alt="Color tattoo 3" loading="lazy">
                 <figcaption>Color Tattoo 3</figcaption>
             </figure>
 
@@ -89,18 +105,23 @@
 
 <footer>
     <div class="footer-social">
-        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
+        <a href="https://instagram.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
         </a>
-        <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://facebook.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="Facebook">
             <i class="fa-brands fa-facebook"></i>
         </a>
-        <a href="https://tiktok.com/@YOUR_HANDLE" target="_blank" rel="noopener" aria-label="TikTok">
+        <a href="https://tiktok.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="TikTok">
             <i class="fa-brands fa-tiktok"></i>
         </a>
     </div>
-    <p>&copy; 2023 Stellar Tattoos. All rights reserved.</p>
+    <p>&copy; <span id="year">2023</span> Stellar Tattoos. All rights reserved.</p>
 </footer>
 
+<script src="/assets/js/nav.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/search-data.js"></script>
+<script src="/assets/js/global-search.js"></script>
+<script src="/assets/js/search.js"></script>
 </body>
 </html>
