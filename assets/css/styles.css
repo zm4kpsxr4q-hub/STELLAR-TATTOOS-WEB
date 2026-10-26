@@ -1,5 +1,8 @@
-/* ===== Reset & base ===== */
+/* =====================================================
+   STELLAR TATTOOS — styles.css
+   ===================================================== */
 
+/* ===== Reset & base ===== */
 .satisfy-regular {
   font-family: "Satisfy", cursive;
   font-weight: 400;
@@ -15,8 +18,21 @@
 body {
   background-color: #0c0c0c;
   color: #f2ede4;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
   line-height: 1.6;
+}
+
+h1, h2, h3,
+.logo span {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Visible keyboard focus (accessibility) */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #c1502e;
+  outline-offset: 3px;
 }
 
 .eyebrow {
@@ -26,6 +42,23 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 16px;
+}
+
+/* ===== Utilities ===== */
+[hidden] {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ===== Header / Nav ===== */
@@ -40,6 +73,15 @@ header {
   background-color: #0c0c0c;
   flex-wrap: wrap;
   gap: 16px;
+  z-index: 100;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  order: 1;
 }
 
 .logo span {
@@ -47,10 +89,26 @@ header {
   letter-spacing: 1px;
 }
 
+.logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Desktop nav: pushed to the right, search button after it */
 nav {
   display: flex;
   gap: 26px;
   flex-wrap: wrap;
+  order: 2;
+  margin-left: auto;
 }
 
 nav a {
@@ -66,22 +124,30 @@ nav a:hover {
   color: #c1502e;
 }
 
-
-header {
+/* Search button + hamburger live together in this wrapper (added by global-search.js) */
+.header-actions {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  border-bottom: 1px solid #262626;
-  position: sticky;
-  top: 0;
-  background-color: #0c0c0c;
-  flex-wrap: wrap;
-  gap: 16px;
-  z-index: 100;
+  gap: 18px;
+  order: 3;
 }
 
-/* ===== Nav toggle (hamburger) ===== */
+.search-btn {
+  background: none;
+  border: none;
+  color: #f2ede4;
+  font-size: 1.05rem;
+  cursor: pointer;
+  padding: 6px;
+  transition: color 0.3s ease;
+}
+
+.search-btn:hover,
+.search-btn:focus-visible {
+  color: #c1502e;
+}
+
+/* Hamburger (hidden on desktop) */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -92,6 +158,12 @@ header {
   border: none;
   cursor: pointer;
   z-index: 1001;
+  order: 2;
+}
+
+/* If the search script ever fails to load, the hamburger still lands in the right spot */
+header > .nav-toggle {
+  margin-left: auto;
 }
 
 .nav-toggle span {
@@ -105,7 +177,41 @@ header {
 .nav-toggle.active span:nth-child(2) { opacity: 0; }
 .nav-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-/* ===== Section 1: Hero ===== */
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  padding: 16px 34px;
+  border: 1px solid #f2ede4;
+  background: transparent;
+  color: #f2ede4;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #c1502e;
+  border-color: #c1502e;
+  color: #fff;
+}
+
+.btn-solid {
+  background-color: #c1502e;
+  border-color: #c1502e;
+  color: #fff;
+}
+
+.btn-solid:hover {
+  background-color: #a8431f;
+  border-color: #a8431f;
+}
+
+/* ===== Home: Hero ===== */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -158,7 +264,28 @@ header {
   border: 1px solid #262626;
 }
 
-/* ===== Section 2: Services preview ===== */
+/* ===== Live open/closed status ===== */
+.open-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #cfcac0;
+}
+
+.open-status::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #9a9a9a;
+}
+
+.open-status.open::before { background: #3fbf6a; }
+.open-status.closed::before { background: #e05a47; }
+
+/* ===== Home: Services preview ===== */
 .services-preview {
   padding: 80px 40px;
   max-width: 1200px;
@@ -220,7 +347,7 @@ header {
   font-size: 0.9rem;
 }
 
-/* ===== Section 3: CTA ===== */
+/* ===== Home: Call to action ===== */
 .cta {
   text-align: center;
   padding: 100px 40px;
@@ -231,24 +358,6 @@ header {
 .cta h2 {
   font-size: 2.4rem;
   margin-bottom: 30px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 16px 34px;
-  border: 1px solid #f2ede4;
-  color: #f2ede4;
-  text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #c1502e;
-  border-color: #c1502e;
-  color: #fff;
 }
 
 /* ===== Footer ===== */
@@ -263,7 +372,25 @@ footer p {
   font-size: 0.85rem;
 }
 
-/* ===== Page intro (Services heading) ===== */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.footer-social a {
+  color: #9a9a9a;
+  font-size: 1.3rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #c1502e;
+  transform: translateY(-4px);
+}
+
+/* ===== Page intro (top of every inner page) ===== */
 .page-intro {
   padding: 80px 40px 40px;
   max-width: 1200px;
@@ -280,7 +407,7 @@ footer p {
   max-width: 60ch;
 }
 
-/* ===== Pricing note row ===== */
+/* ===== Services page ===== */
 .pricing-note {
   display: flex;
   justify-content: space-between;
@@ -303,7 +430,6 @@ footer p {
   color: #f2ede4;
 }
 
-/* ===== Services list rows ===== */
 .services-list {
   max-width: 1200px;
   margin: 0 auto;
@@ -344,7 +470,6 @@ footer p {
   white-space: nowrap;
 }
 
-/* ===== Quote block ===== */
 .quote-block {
   text-align: center;
   padding: 100px 40px;
@@ -358,18 +483,7 @@ footer p {
   color: #f2ede4;
 }
 
-.btn-solid {
-  background-color: #c1502e;
-  border-color: #c1502e;
-  color: #fff;
-}
-
-.btn-solid:hover {
-  background-color: #a8431f;
-  border-color: #a8431f;
-}
-
-/* ===== Portfolio grid ===== */
+/* ===== Portfolio & Gallery ===== */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -419,7 +533,6 @@ footer p {
   letter-spacing: 0.5px;
 }
 
-/* ===== Gallery category headings ===== */
 .gallery-category {
   max-width: 1200px;
   margin: 0 auto;
@@ -480,7 +593,7 @@ footer p {
   max-width: 60ch;
 }
 
-/* ===== Artist polaroid grid ===== */
+/* ===== Artists: polaroid grid ===== */
 .artist-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -524,7 +637,7 @@ footer p {
   font-size: 1.05rem;
 }
 
-/* ===== Text blocks (Mission / Vision) ===== */
+/* ===== About: Mission / Vision / Why Us ===== */
 .text-block {
   max-width: 1200px;
   margin: 0 auto;
@@ -542,7 +655,6 @@ footer p {
   max-width: 70ch;
 }
 
-/* ===== Why Us feature grid ===== */
 .why-us {
   max-width: 1200px;
   margin: 0 auto;
@@ -589,7 +701,18 @@ footer p {
   font-size: 0.9rem;
 }
 
-/* ===== Progress indicator ===== */
+/* ===== Forms: container, progress, steps ===== */
+.enquiry-form-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 40px 80px;
+}
+
+.enquiry-form-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
 .form-progress {
   display: flex;
   justify-content: center;
@@ -635,7 +758,6 @@ footer p {
   color: #cfcac0;
 }
 
-/* ===== Form steps ===== */
 .form-step {
   display: none;
 }
@@ -650,7 +772,10 @@ footer p {
   margin-top: 30px;
 }
 
-/* ===== Review summary (step 3) ===== */
+.form-nav .btn {
+  margin-top: 0;
+}
+
 .review-text {
   color: #9a9a9a;
   margin-bottom: 20px;
@@ -671,7 +796,7 @@ footer p {
   margin-right: 8px;
 }
 
-/* ===== Enquiry form ===== */
+/* ===== Forms: fields ===== */
 .enquiry-form fieldset {
   border: none;
   border-top: 1px solid #262626;
@@ -729,7 +854,84 @@ footer p {
   font-family: inherit;
 }
 
-/* ===== Contact details list ===== */
+/* Radio buttons & checkboxes */
+.enquiry-form .group-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #cfcac0;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+.enquiry-form .radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.enquiry-form .radio-option,
+.enquiry-form .checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #cfcac0;
+  cursor: pointer;
+}
+
+.enquiry-form .checkbox-row {
+  margin-top: 22px;
+}
+
+.enquiry-form input[type="radio"],
+.enquiry-form input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  accent-color: #c1502e;
+  flex-shrink: 0;
+}
+
+/* Validation errors */
+.enquiry-form input.invalid,
+.enquiry-form select.invalid,
+.enquiry-form textarea.invalid {
+  border-color: #e05a47;
+}
+
+.error-msg {
+  display: block;
+  color: #ff7a66;
+  font-size: 0.82rem;
+  margin-top: 6px;
+}
+
+.radio-group.invalid,
+.checkbox-row.invalid {
+  outline: 1px solid #e05a47;
+  outline-offset: 6px;
+}
+
+/* On-page success / error message */
+.form-message {
+  margin-top: 24px;
+  padding: 14px 16px;
+  border: 1px solid #262626;
+  font-size: 0.92rem;
+}
+
+.form-message.success {
+  border-color: #3f8f5a;
+  color: #a7e0b8;
+}
+
+.form-message.error {
+  border-color: #e05a47;
+  color: #ff9d8f;
+}
+
+/* ===== Contact page ===== */
 .contact-details {
   max-width: 1200px;
   margin: 0 auto;
@@ -757,7 +959,6 @@ footer p {
   margin-right: 8px;
 }
 
-/* ===== Store map section ===== */
 .store-map {
   max-width: 1200px;
   margin: 0 auto;
@@ -781,59 +982,230 @@ footer p {
   border: 1px solid #262626;
 }
 
-/* ===== Contact form section heading ===== */
-.enquiry-form-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
+/* ===== Search: page-level bars ===== */
+.search-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 10px;
 }
 
-/* ===== Logo image ===== */
-.logo {
+.search-bar input {
+  width: 100%;
+  max-width: 480px;
+  background-color: #111111;
+  border: 1px solid #262626;
+  color: #f2ede4;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border-radius: 2px;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #c1502e;
+}
+
+.search-status {
+  color: #9a9a9a;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  min-height: 1.2em;
+}
+
+/* ===== Search: home page ===== */
+.home-search {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 40px;
+}
+
+.home-search-form {
   display: flex;
-  align-items: center;
   gap: 12px;
+  max-width: 640px;
 }
 
-.logo-img {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
-  animation: spin 8s linear infinite;
+.home-search-form input {
+  flex: 1;
+  background-color: #111111;
+  border: 1px solid #262626;
+  color: #f2ede4;
+  padding: 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border-radius: 2px;
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.home-search-form input:focus {
+  outline: none;
+  border-color: #c1502e;
 }
 
-/* ===== Footer social icons ===== */
-.footer-social {
+.home-search-hints {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  color: #9a9a9a;
+  font-size: 0.85rem;
+}
+
+/* ===== Search: site-wide overlay ===== */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
-  gap: 24px;
-  margin-bottom: 18px;
+  align-items: flex-start;
+  padding: 80px 20px 20px;
 }
 
-.footer-social a {
+.search-overlay[hidden] {
+  display: none;
+}
+
+.search-panel {
+  width: 100%;
+  max-width: 640px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  background: #0c0c0c;
+  border: 1px solid #262626;
+  padding: 20px;
+}
+
+.search-panel-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.search-panel-head input {
+  flex: 1;
+  background-color: #111111;
+  border: 1px solid #262626;
+  color: #f2ede4;
+  padding: 14px;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 2px;
+}
+
+.search-panel-head input:focus {
+  outline: none;
+  border-color: #c1502e;
+}
+
+.search-close {
+  background: none;
+  border: none;
   color: #9a9a9a;
-  font-size: 1.3rem;
-  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 8px;
 }
 
-.footer-social a:hover {
+.search-close:hover {
   color: #c1502e;
-  transform: translateY(-4px);
+}
+
+.global-search-status {
+  color: #9a9a9a;
+  font-size: 0.85rem;
+  margin: 14px 0 8px;
+}
+
+.search-results {
+  list-style: none;
+}
+
+.search-result {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #262626;
+  color: #f2ede4;
+  text-decoration: none;
+}
+
+.search-result:hover,
+.search-result.active,
+.search-result:focus-visible {
+  background: #151515;
+  outline: none;
+}
+
+.search-result img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  flex-shrink: 0;
+  filter: grayscale(100%);
+}
+
+.search-result-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.search-result strong {
+  font-size: 0.95rem;
+}
+
+.search-tag {
+  display: inline-block;
+  margin-left: 10px;
+  color: #c1502e;
+  font-size: 0.68rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.search-desc {
+  color: #9a9a9a;
+  font-size: 0.82rem;
+}
+
+.search-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.search-suggestions[hidden] {
+  display: none;
+}
+
+.search-chip {
+  background: none;
+  border: 1px solid #262626;
+  color: #cfcac0;
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.search-chip:hover {
+  border-color: #c1502e;
+  color: #c1502e;
 }
 
 /* =====================================================
-   RESPONSIVE — mobile-first breakpoints
+   RESPONSIVE — keep these at the bottom so they win
    Tablet: max-width 1024px
-   Phone:  max-width 600px (768px for spacing/type scale)
+   Phone:  max-width 768px (spacing/type) and 600px (columns)
    ===================================================== */
 
 /* ---- Tablet (≤1024px) ---- */
@@ -842,12 +1214,20 @@ footer p {
     padding: 18px 24px;
   }
 
+  /* logo | search + hamburger, with the menu dropping underneath */
   .nav-toggle {
     display: flex;
   }
 
+  .header-actions {
+    order: 2;
+    margin-left: auto;
+  }
+
   nav {
     display: none;
+    order: 3;
+    margin-left: 0;
     flex-direction: column;
     width: 100%;
     gap: 0;
@@ -903,7 +1283,7 @@ footer p {
   }
 }
 
-/* ---- Phone spacing & type scale (≤768px) ---- */
+/* ---- Phone: spacing & type scale (≤768px) ---- */
 @media (max-width: 768px) {
   .hero,
   .services-preview,
@@ -920,7 +1300,9 @@ footer p {
   .why-us,
   .contact-details,
   .store-map,
-  .enquiry-form-section {
+  .enquiry-form-section,
+  .search-bar,
+  .home-search {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -964,9 +1346,13 @@ footer p {
   .progress-label {
     display: none;
   }
+
+  .home-search-form {
+    flex-direction: column;
+  }
 }
 
-/* ---- Phone (≤600px) ---- */
+/* ---- Phone: single columns (≤600px) ---- */
 @media (max-width: 600px) {
   .services-grid {
     grid-template-columns: 1fr;
@@ -990,5 +1376,20 @@ footer p {
 
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  .search-overlay {
+    padding-top: 20px;
+  }
+
+  .search-panel {
+    max-height: calc(100vh - 40px);
+  }
+}
+
+/* ---- Respect "reduce motion" settings ---- */
+@media (prefers-reduced-motion: reduce) {
+  .logo-img {
+    animation: none;
   }
 }
