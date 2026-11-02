@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO meta tags -->
+    <meta name="description" content="Contact Stellar Tattoos in Century City, Cape Town. Find our email, phone number, opening hours and map, or send us a message online.">
+    <meta name="keywords" content="contact Stellar Tattoos, tattoo studio Century City, Cape Town tattoo studio address, tattoo studio opening hours">
+    <meta name="author" content="Hlumelo">
+
     <title>Contact Us | Stellar Tattoos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<script src="/assets/js/nav.js"></script>
 <body>
 
 <header>
@@ -36,21 +46,7 @@
 
 <main>
 
-    <section class="page-intro">
-        <h1>Contact Us</h1>
-        <p>If you have any questions, inquiries, or would like to get in touch with us, please feel free to reach out. We value your feedback and are here to assist you. You can contact us through the following methods:</p>
-    </section>
-
-    <section class="contact-details">
-        <h2>Get In Touch</h2>
-        <ul class="contact-list">
-            <li><strong>Email:</strong> info@stellar-tattoos.com</li>
-            <li><strong>Phone:</strong> +27 21 299 6990</li>
-            <li><strong>Address:</strong> 490 Century Blvd, Century City, Cape Town 7446, South Africa</li>
-            <li><strong>Hours:</strong> Mon–Fri, 9AM–6PM</li>
-        </ul>
-    </section>
-
+   <section class="enquiry-form-section">
     <section class="store-map">
         <h2>Our Store</h2>
         <p>View our location on Google Maps below.</p>
@@ -59,16 +55,14 @@
                 width="100%" height="350" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
     </section>
-
-    <section class="enquiry-form-section">
         <h2>Send Us a Message</h2>
-        <form action="#" method="post" class="enquiry-form" id="contactForm">
+        <form action="#" method="post" class="enquiry-form" id="contactForm" novalidate>
             <fieldset>
                 <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Tell us who you are" required>
+                <input type="text" id="name" name="name" placeholder="Tell us who you are" autocomplete="name" required>
 
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Where we can reply to you" required>
+                <input type="email" id="email" name="email" placeholder="Where we can reply to you" autocomplete="email" required>
 
                 <label for="proj_type">Project Type</label>
                 <select id="proj_type" name="proj_type" required>
@@ -78,33 +72,47 @@
                     <option value="other">Other</option>
                 </select>
 
-                <label for="budget">Budget</label>
+                <label for="budget">Budget (R)</label>
                 <input type="number" id="budget" name="budget" min="0" placeholder="What is your budget?" required>
 
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="4" placeholder="Tell us more about your project" required></textarea>
+
+                <div class="checkbox-row">
+                    <label class="checkbox-option">
+                        <input type="checkbox" id="consent" name="consent">
+                        I agree that Stellar Tattoos may use my details to reply to this message.
+                    </label>
+                </div>
             </fieldset>
 
             <button type="submit" class="btn btn-solid">Submit</button>
+
+            <div class="form-message" id="formMessage" role="status" aria-live="polite" hidden></div>
         </form>
     </section>
-
 </main>
 
 <footer>
     <div class="footer-social">
-        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
+        <a href="https://instagram.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
         </a>
-        <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://facebook.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="Facebook">
             <i class="fa-brands fa-facebook"></i>
         </a>
-        <a href="https://tiktok.com/@YOUR_HANDLE" target="_blank" rel="noopener" aria-label="TikTok">
+        <a href="https://tiktok.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="TikTok">
             <i class="fa-brands fa-tiktok"></i>
         </a>
     </div>
-    <p>&copy; 2023 Stellar Tattoos. All rights reserved.</p>
+    <p>&copy; <span id="year">2023</span> Stellar Tattoos. All rights reserved.</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="/assets/js/nav.js"></script>
+<script src="/assets/js/validation.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/search-data.js"></script>
+<script src="/assets/js/global-search.js"></script>
 </body>
 </html>
