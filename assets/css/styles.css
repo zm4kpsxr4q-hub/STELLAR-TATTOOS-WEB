@@ -259,9 +259,58 @@ header > .nav-toggle {
   margin-top: 4px;
 }
 
-.hero-image img {
+/* ===== Hero emblem: bronze coin look ===== */
+.hero-image {
+  position: relative;
   width: 100%;
-  border: 1px solid #262626;
+  max-width: 560px;
+  aspect-ratio: 1 / 1;
+  margin-inline: auto;
+  /* soft warm glow behind the coin; fades out before the edges so no box shows */
+  background: radial-gradient(circle at 50% 50%, rgba(193, 134, 90, 0.14), transparent 62%);
+}
+
+/* Bronze rim + shadow + glow, sitting just behind the image */
+.hero-image::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: conic-gradient(from 210deg, #e8c39a, #8a5a3c, #3b2519, #a8714a, #e8c39a);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.7),
+    0 0 80px rgba(193, 80, 46, 0.25),
+    inset 0 0 0 1px rgba(255, 220, 180, 0.25);
+}
+
+/* The emblem itself, cropped to a circle so the white corners disappear */
+.hero-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 87.5%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  clip-path: circle(39% at 50% 50%);
+  border: none;
+  /* warms the grey artwork towards bronze */
+  filter: sepia(0.6) saturate(1.3) contrast(1.15) brightness(0.82);
+}
+
+/* Thin orbit ring with four small stars (an inline SVG, so no extra file needed) */
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-6 -6 112 112'%3E%3Ccircle cx='50' cy='50' r='50' fill='none' stroke='%23c1865a' stroke-opacity='0.35' stroke-width='0.25'/%3E%3Cg fill='%23d9a577' fill-opacity='0.85'%3E%3Cpath d='M50 -4 Q50.8 -0.8 54 0 Q50.8 0.8 50 4 Q49.2 0.8 46 0 Q49.2 -0.8 50 -4Z'/%3E%3Cpath d='M0 46 Q0.8 49.2 4 50 Q0.8 50.8 0 54 Q-0.8 50.8 -4 50 Q-0.8 49.2 0 46Z'/%3E%3Cpath d='M100 46 Q100.8 49.2 104 50 Q100.8 50.8 100 54 Q99.2 50.8 96 50 Q99.2 49.2 100 46Z'/%3E%3Cpath d='M50 96 Q50.8 99.2 54 100 Q50.8 100.8 50 104 Q49.2 100.8 46 100 Q49.2 99.2 50 96Z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* ===== Live open/closed status ===== */
@@ -593,48 +642,72 @@ footer p {
   max-width: 60ch;
 }
 
-/* ===== Artists: polaroid grid ===== */
+
+/* ===== Artists: photo cards ===== */
 .artist-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px 40px 80px;
 }
 
-.polaroid {
-  background: #f2ede4;
-  padding: 16px 16px 24px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.artist-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #111111;
+  border: 1px solid #262626;
 }
 
-.polaroid:hover {
-  transform: translateY(-8px) rotate(-1deg);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.4);
-}
-
-.polaroid img {
+.artist-card img {
   width: 100%;
+  height: 100%;
   display: block;
-  filter: grayscale(100%);
-  transition: filter 0.4s ease;
+  object-fit: cover;
+  object-position: center 25%;
+  filter: grayscale(100%) brightness(0.9);
+  transform: scale(1);
+  transition: filter 0.4s ease, transform 0.6s ease;
 }
 
-.polaroid:hover img {
-  filter: grayscale(0%);
+.artist-card:hover img,
+.artist-card:focus-visible img {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.04);
 }
 
-.polaroid figcaption {
-  text-align: center;
-  color: #0c0c0c;
-  margin-top: 14px;
-  font-size: 0.9rem;
-  line-height: 1.4;
+.artist-card figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 70px 22px 22px;
+  background: linear-gradient(to top, rgba(12, 12, 12, 0.95) 20%, rgba(12, 12, 12, 0));
 }
 
-.polaroid figcaption strong {
-  font-size: 1.05rem;
+.artist-card figcaption::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #c1502e;
+  margin-bottom: 12px;
+}
+
+.artist-card figcaption strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #f2ede4;
+  margin-bottom: 4px;
+}
+
+.artist-card figcaption span {
+  color: #cfcac0;
+  font-size: 0.85rem;
 }
 
 /* ===== About: Mission / Vision / Why Us ===== */
@@ -1391,5 +1464,195 @@ footer p {
 @media (prefers-reduced-motion: reduce) {
   .logo-img {
     animation: none;
+  }
+}  
+
+/* ===== Click-to-enlarge hint on images ===== */
+.artist-card,
+.hover-item {
+  cursor: zoom-in;
+}
+
+.artist-card:focus-visible,
+.hover-item:focus-visible {
+  outline: 2px solid #c1502e;
+  outline-offset: 4px;
+}
+
+.artist-card::before,
+.hover-item::before {
+  content: "\f00e";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(12, 12, 12, 0.75);
+  border: 1px solid rgba(242, 237, 228, 0.3);
+  color: #f2ede4;
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.artist-card:hover::before,
+.artist-card:focus-visible::before,
+.hover-item:hover::before,
+.hover-item:focus-visible::before {
+  opacity: 1;
+  transform: none;
+}
+
+/* Phones have no hover, so always show the hint */
+@media (hover: none) {
+  .artist-card::before,
+  .hover-item::before {
+    opacity: 0.85;
+    transform: none;
+  }
+}
+
+/* ===== Lightbox (image pop-up with zoom) ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  color: #9a9a9a;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.lightbox-tools {
+  display: flex;
+  gap: 8px;
+}
+
+.lb-btn {
+  width: 42px;
+  height: 42px;
+  background: none;
+  border: 1px solid #262626;
+  color: #f2ede4;
+  font-family: inherit;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.lb-btn:hover {
+  border-color: #c1502e;
+  color: #c1502e;
+}
+
+.lightbox-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 92vw;
+  max-height: calc(100vh - 200px);
+  max-height: calc(100dvh - 200px);
+  object-fit: contain;
+  cursor: zoom-in;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: none;
+  will-change: transform;
+  transition: transform 0.2s ease;
+}
+
+.lightbox-img.zoomed {
+  cursor: grab;
+}
+
+.lightbox-img.dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 48px;
+  height: 64px;
+  background: rgba(12, 12, 12, 0.6);
+  border: 1px solid #262626;
+  color: #f2ede4;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.lightbox-nav:hover {
+  border-color: #c1502e;
+  color: #c1502e;
+}
+
+.lightbox-nav.prev { left: 12px; }
+.lightbox-nav.next { right: 12px; }
+
+.lightbox-caption {
+  text-align: center;
+  padding: 14px 20px 22px;
+  color: #cfcac0;
+  font-size: 0.9rem;
+  min-height: 80px;
+}
+
+.lightbox-caption strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: #f2ede4;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+  .lightbox-nav {
+    width: 40px;
+    height: 56px;
+  }
+
+  .lightbox-nav.prev { left: 6px; }
+  .lightbox-nav.next { right: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-img,
+  .artist-card img {
+    transition: none;
   }
 }

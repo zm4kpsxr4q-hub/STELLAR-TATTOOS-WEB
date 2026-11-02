@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Stellar Tattoos</title>
+
+    <!-- SEO meta tags -->
+    <meta name="description" content="Browse our portfolio of custom tattoo designs and piercings created by our Cape Town artists, and get inspired for your next piece.">
+    <meta name="keywords" content="tattoo portfolio, custom tattoo designs, piercing designs, tattoo ideas, Stellar Tattoos portfolio">
+    <meta name="author" content="Hlumelo">
+
+    <title>Tattoo &amp; Piercing Portfolio | Stellar Tattoos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<script src="/assets/js/nav.js"></script>
 <body>
 
 <header>
@@ -41,35 +51,41 @@
         <p>Explore our collection of stunning tattoo designs created by our talented artists.</p>
     </section>
 
+    <section class="search-bar">
+        <label for="siteSearch" class="sr-only">Search the portfolio</label>
+        <input type="search" id="siteSearch" placeholder="Search the portfolio (e.g. piercing)" data-search-items=".hover-item" autocomplete="off">
+        <p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
+    </section>
+
     <section class="portfolio-grid">
 
         <figure class="hover-item">
-            <img src="/assets/images/CUSTOM 1.jpeg" alt="Custom Tattoo Design 1">
+            <img src="/assets/images/CUSTOM 1.jpeg" alt="Custom Tattoo Design 1" loading="lazy">
             <figcaption>Custom Tattoo Design</figcaption>
         </figure>
 
         <figure class="hover-item">
-            <img src="/assets/images/CUSTOM 2.jpeg" alt="Custom Tattoo Design 2">
+            <img src="/assets/images/CUSTOM 2.jpeg" alt="Custom Tattoo Design 2" loading="lazy">
             <figcaption>Custom Tattoo Design 2</figcaption>
         </figure>
 
         <figure class="hover-item">
-            <img src="/assets/images/CUSTOM 3.jpeg" alt="Custom Tattoo Design 3">
+            <img src="/assets/images/CUSTOM 3.jpeg" alt="Custom Tattoo Design 3" loading="lazy">
             <figcaption>Custom Tattoo Design 3</figcaption>
         </figure>
 
         <figure class="hover-item tint">
-            <img src="/assets/images/PIERCING 1.jpeg" alt="Piercing Design 1">
+            <img src="/assets/images/PIERCING 1.jpeg" alt="Piercing Design 1" loading="lazy">
             <figcaption>Piercing Design 1</figcaption>
         </figure>
 
         <figure class="hover-item tint">
-            <img src="/assets/images/PIERCING 2.jpeg" alt="Piercing Design 2">
+            <img src="/assets/images/PIERCING 2.jpeg" alt="Piercing Design 2" loading="lazy">
             <figcaption>Piercing Design 2</figcaption>
         </figure>
 
         <figure class="hover-item tint">
-            <img src="/assets/images/PIERCING 3.jpeg" alt="Piercing Design 3">
+            <img src="/assets/images/PIERCING 3.jpeg" alt="Piercing Design 3" loading="lazy">
             <figcaption>Piercing Design 3</figcaption>
         </figure>
 
@@ -79,18 +95,24 @@
 
 <footer>
     <div class="footer-social">
-        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
+        <a href="https://instagram.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
         </a>
-        <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://facebook.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="Facebook">
             <i class="fa-brands fa-facebook"></i>
         </a>
-        <a href="https://tiktok.com/@YOUR_HANDLE" target="_blank" rel="noopener" aria-label="TikTok">
+        <a href="https://tiktok.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="TikTok">
             <i class="fa-brands fa-tiktok"></i>
         </a>
     </div>
-    <p>&copy; 2023 Stellar Tattoos. All rights reserved.</p>
+    <p>&copy; <span id="year">2023</span> Stellar Tattoos. All rights reserved.</p>
 </footer>
 
+<script src="/assets/js/nav.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/search-data.js"></script>
+<script src="/assets/js/global-search.js"></script>
+<script src="/assets/js/search.js"></script>
+<script src="/assets/js/lightbox.js"></script>
 </body>
 </html>

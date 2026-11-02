@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Stellar Tattoos</title>
+
+    <!-- SEO meta tags -->
+    <meta name="description" content="Explore custom tattoo design, piercing, cover-ups, fine line and black and grey realism at Stellar Tattoos. Prices from R200 with free consultations.">
+    <meta name="keywords" content="tattoo services Cape Town, custom tattoo design, piercing services, tattoo prices, free tattoo consultation">
+    <meta name="author" content="Hlumelo">
+
+    <title>Tattoo &amp; Piercing Services | Stellar Tattoos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<script src="/assets/js/nav.js"></script>
 <body>
 
 <header>
@@ -41,6 +51,13 @@
         <span class="eyebrow">What We Offer</span>
         <h1>Our Services</h1>
         <p>At Stellar Tattoos, we offer a wide range of tattoo services to cater to your unique style and preferences. Our skilled artists are dedicated to creating custom designs that reflect your individuality.</p>
+    </section>
+
+    <!-- Search -->
+    <section class="search-bar">
+        <label for="siteSearch" class="sr-only">Search services and prices</label>
+        <input type="search" id="siteSearch" placeholder="Search services and prices (e.g. piercing)" data-search-items=".service-row" autocomplete="off">
+        <p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
     </section>
 
     <!-- Section 2: Pricing note + CTA -->
@@ -82,18 +99,23 @@
 
 <footer>
     <div class="footer-social">
-        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
+        <a href="https://instagram.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
         </a>
-        <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://facebook.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="Facebook">
             <i class="fa-brands fa-facebook"></i>
         </a>
-        <a href="https://tiktok.com/@YOUR_HANDLE" target="_blank" rel="noopener" aria-label="TikTok">
+        <a href="https://tiktok.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="TikTok">
             <i class="fa-brands fa-tiktok"></i>
         </a>
     </div>
-    <p>&copy; 2023 Stellar Tattoos. All rights reserved.</p>
+    <p>&copy; <span id="year">2023</span> Stellar Tattoos. All rights reserved.</p>
 </footer>
 
+<script src="/assets/js/nav.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/search-data.js"></script>
+<script src="/assets/js/global-search.js"></script>
+<script src="/assets/js/search.js"></script>
 </body>
 </html>
