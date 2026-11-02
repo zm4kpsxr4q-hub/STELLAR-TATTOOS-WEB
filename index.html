@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <style>
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stellar Tattoos | Home</title>
-   <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- SEO meta tags -->
+    <meta name="description" content="Stellar Tattoos is a Cape Town tattoo and piercing studio. Meet our artists, explore our services and send an enquiry for your next custom piece.">
+    <meta name="keywords" content="tattoo studio Cape Town, custom tattoos, piercing, black and grey tattoos, fine line tattoos, Stellar Tattoos">
+    <meta name="author" content="Hlumelo">
+
+    <title>Stellar Tattoos | Custom Tattoo &amp; Piercing Studio in Cape Town</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<script src="/assets/js/nav.js"></script>
 <body>
 
 <header>
     <div class="logo">
-         <img src="/assets/images/STELLAR TATTOOS.jpeg" alt="Stellar Tattoos logo" class="logo-img">
+        <img src="/assets/images/STELLAR TATTOOS.jpeg" alt="Stellar Tattoos logo" class="logo-img">
         <span>Stellar Tattoos</span>
     </div>
 
@@ -42,13 +49,14 @@
     <!-- Section 1: Hero split — heading/text/stats on left, image on right -->
     <section class="hero">
         <div class="hero-text">
-            <span class="eyebrow">About Stellar</span>
+            <span class="eyebrow" id="greeting">About Stellar</span>
             <h1>Art That Lasts a Lifetime</h1>
             <p>
                 Stellar Tattoos is more than a studio — it is the digital extension of our
                 physical space. We act as a bridge between our artists and a broader
                 community of clients.
             </p>
+            <p class="open-status" id="openStatus"></p>
             <p>
                 Whether you are a first-timer looking for inspiration, or a seasoned
                 collector seeking your next piece, our artists are here to bring your
@@ -127,8 +135,23 @@
 </main>
 
 <footer>
-    <p>&copy; 2023 Stellar Tattoos. All rights reserved.</p>
+    <div class="footer-social">
+        <a href="https://instagram.com/stellarTattoos" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/stellarTattoos" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://tiktok.com/@StellarTattoos" target="_blank" rel="noopener" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+    </div>
+    <p>&copy; <span id="year">2023</span> Stellar Tattoos. All rights reserved.</p>
 </footer>
 
+<script src="/assets/js/nav.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/search-data.js"></script>
+<script src="/assets/js/global-search.js"></script>
 </body>
 </html>
