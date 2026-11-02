@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artists | Stellar Tattoos</title>
+
+    <!-- SEO meta tags -->
+    <meta name="description" content="Meet the Stellar Tattoos artists: Star, Cole, Kenny, Emihle and Ashley. Find the right style for your next tattoo or piercing in Cape Town.">
+    <meta name="keywords" content="tattoo artists Cape Town, realistic tattoo artist, watercolour tattoo artist, traditional tattoos, Stellar Tattoos artists">
+    <meta name="author" content="Hlumelo">
+
+    <title>Our Tattoo Artists | Stellar Tattoos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<script src="/assets/js/nav.js"></script>
 <body>
 
 <header>
@@ -41,31 +51,37 @@
         <p>Meet our talented team of artists who bring your tattoo and piercing ideas to life. Each artist has their own unique style and expertise, ensuring that you find the perfect match for your desired design.</p>
     </section>
 
+    <section class="search-bar">
+        <label for="siteSearch" class="sr-only">Search artists</label>
+        <input type="search" id="siteSearch" placeholder="Search artists by name or style (e.g. watercolor)" data-search-items=".artist-card" autocomplete="off">
+        <p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
+    </section>
+
     <section class="artist-grid">
 
-        <figure class="polaroid">
-            <img src="/assets/images/Star.jpeg" alt="Star, tattoo artist">
-            <figcaption><strong>Star</strong><br>Specializes in traditional tattoos</figcaption>
+        <figure class="artist-card">
+            <img src="/assets/images/Star.jpeg" alt="Star, tattoo artist" loading="lazy">
+            <figcaption><strong>Star</strong><span>Specializes in traditional tattoos</span></figcaption>
         </figure>
 
-        <figure class="polaroid">
-            <img src="/assets/images/Cole.jpeg" alt="Cole, tattoo artist">
-            <figcaption><strong>Cole</strong><br>Expert in realistic portraits</figcaption>
+        <figure class="artist-card">
+            <img src="/assets/images/Cole.jpeg" alt="Cole, tattoo artist" loading="lazy">
+            <figcaption><strong>Cole</strong><span>Expert in realistic portraits</span></figcaption>
         </figure>
 
-        <figure class="polaroid">
-            <img src="/assets/images/kenny.jpeg" alt="Kenny, tattoo artist">
-            <figcaption><strong>Kenny</strong><br>Known for vibrant color work</figcaption>
+        <figure class="artist-card">
+            <img src="/assets/images/kenny.jpeg" alt="Kenny, tattoo artist" loading="lazy">
+            <figcaption><strong>Kenny</strong><span>Known for vibrant color work</span></figcaption>
         </figure>
 
-        <figure class="polaroid">
-            <img src="/assets/images/Emihle.jpeg" alt="Emihle, tattoo artist">
-            <figcaption><strong>Emihle</strong><br>Specializes in watercolor tattoos</figcaption>
+        <figure class="artist-card">
+            <img src="/assets/images/Emihle.jpeg" alt="Emihle, tattoo artist" loading="lazy">
+            <figcaption><strong>Emihle</strong><span>Specializes in watercolor tattoos</span></figcaption>
         </figure>
 
-        <figure class="polaroid">
-            <img src="/assets/images/Ashley.jpeg" alt="Ashley, tattoo artist">
-            <figcaption><strong>Ashley</strong><br>Expert in black, grey tattoos and piercings</figcaption>
+        <figure class="artist-card">
+            <img src="/assets/images/Ashley.jpeg" alt="Ashley, tattoo artist" loading="lazy">
+            <figcaption><strong>Ashley</strong><span>Expert in black, grey tattoos and piercings</span></figcaption>
         </figure>
 
     </section>
@@ -74,18 +90,24 @@
 
 <footer>
     <div class="footer-social">
-        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
+        <a href="https://instagram.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
         </a>
-        <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://facebook.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="Facebook">
             <i class="fa-brands fa-facebook"></i>
         </a>
-        <a href="https://tiktok.com/@YOUR_HANDLE" target="_blank" rel="noopener" aria-label="TikTok">
+        <a href="https://tiktok.com/stellar_tattoos" target="_blank" rel="noopener" aria-label="TikTok">
             <i class="fa-brands fa-tiktok"></i>
         </a>
     </div>
-    <p>&copy; 2023 Stellar Tattoos. All rights reserved.</p>
+    <p>&copy; <span id="year">2023</span> Stellar Tattoos. All rights reserved.</p>
 </footer>
 
+<script src="/assets/js/nav.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/search-data.js"></script>
+<script src="/assets/js/global-search.js"></script>
+<script src="/assets/js/search.js"></script>
+<script src="/assets/js/lightbox.js"></script>
 </body>
 </html>
