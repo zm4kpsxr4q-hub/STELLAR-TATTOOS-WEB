@@ -24,12 +24,8 @@ The website's main goal is to invite visitors, keeping them and resulting to boo
 
 ### 1. Changes Based on Part 2 Feedback
 
-- **Feedback:** [paste your lecturer's first Part 2 comment here]
-  - **Action taken:** [what you changed, and on which page or file]
-- **Feedback:** [paste the second comment here]
-  - **Action taken:** [what you changed, and on which page or file]
-- **Feedback:** [add more entries as needed]
-  - **Action taken:** [...]
+- **Feedback:** 
+  Made sure to make changes in all areas i made slip ups. 
 
 ### 2. Interactive Elements
 
